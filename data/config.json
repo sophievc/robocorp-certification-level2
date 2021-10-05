@@ -1,0 +1,13 @@
+{
+    "secrets": [
+        "RobotSpareBin"
+    ],
+    "settings": {
+        "SaveLocation": "output",
+        "TempSaveLocation": "temp"
+
+    },
+    "framework": {
+
+    }
+}
