@@ -106,7 +106,7 @@ def process( config, transaction_item, transaction_number, robot_order ):
             file_system.wait_until_removed(file_to_remove)
 
         except Exception as e:
-            LOGGER.exception(f'Failed to remove {f}. Reason: {str(e)}')
+            LOGGER.warning(f'Failed to remove {f}. Reason: {str(e)}')
 
     
 
@@ -128,7 +128,7 @@ def init_all_settings():
             secret = Vault().get_secret(s)
             _secrets.append(secret)
     except Exception as e:
-        LOGGER.exception(f'Failed to fetch secrets: {str(e)}')
+        LOGGER.warning(f'Failed to fetch secrets: {str(e)}')
 
     return config, _secrets
 
@@ -139,7 +139,7 @@ def get_user_input():
         dialogs.add_text_input(name='file_name', label='Output name')
         user_input = dialogs.run_dialog(title='Provide a name for the output plz', width=400, height=500)
     except Exception as e:
-        LOGGER.exception('Unable to get user input, setting it to default. Reason: ' + str(e))
+        LOGGER.warning('Unable to get user input, setting it to default. Reason: ' + str(e))
         user_input = {
             "file_name" : "default"
         }
@@ -194,11 +194,11 @@ if __name__ == "__main__":
             transaction_number += 1
 
         except Exception as e:
-            LOGGER.exception('Transaction Exception: ' + str(e))
+            LOGGER.warning('Transaction Exception: ' + str(e))
             try:
                 close_all_applications( config, robot_order )
             except Exception:
-                LOGGER.exception('Failed to close all applications: ' + str(e) )
+                LOGGER.warning('Failed to close all applications: ' + str(e) )
                 kill_all_applications( config, robot_order )
             finally:
                 restart_needed = True
@@ -222,7 +222,7 @@ if __name__ == "__main__":
         archive.archive_folder_with_zip(os.path.join(os.getcwd(), 'output', 'receipts'), 
                                         os.path.join(os.getcwd(), 'output', user_input['file_name'] + '.zip'))
     except Exception as e:
-        LOGGER.exception(f'Failed to archive receipts: {str(e)}')
+        LOGGER.warning(f'Failed to archive receipts: {str(e)}')
     
     finally:
         try:
@@ -231,4 +231,4 @@ if __name__ == "__main__":
                 FileSystem().remove_file(file_to_remove)
                 FileSystem().wait_until_removed(file_to_remove)
         except Exception as e:
-            print(f'Failed to remove temp files. Reason: {str(e)}')
+            LOGGER.warning(f'Failed to remove temp files. Reason: {str(e)}')
