@@ -1,72 +1,79 @@
+import os
 from typing import cast
+from Browser.utils.data_types import ElementState, ScreenshotFileTypes, SelectAttribute
 from RPA.Browser.Selenium import Selenium
-import time
+import Browser
 
 class RobotOrder( object ):
 
     def __init__(self):
-        self.browser = Selenium()
+        self.browser = Browser.Browser()
 
     def accept_terms( self ):
-        if self.browser.is_element_visible('xpath://button[text()="Yep"]'):
-            self.browser.click_button('xpath://button[text()="Yep"]')
+        if self.browser.get_element_state('xpath=//button[text()="Yep"]', state=ElementState.visible):
+            self.browser.click('xpath=//button[text()="Yep"]')
 
-    def open_application( self, url ):
-        self.browser.open_available_browser(url)
-        self.browser.wait_until_element_is_enabled('xpath://*[text()="RobotSpareBin Industries Inc."]')
+    def open_application( self, url, env ='PROD' ):
+        if env == 'PROD':
+            self.browser.new_page(url=url)
+        else:
+            self.browser.open_browser(url=url)
+        self.browser.wait_for_elements_state('xpath=//*[text()="RobotSpareBin Industries Inc."]', state=ElementState.visible)
         
-    def close_application( self ):
+    def close_page( self ):
+        self.browser.close_page()
+
+    def close_browser( self ):
         self.browser.close_browser()
 
     def new_order( self, head, body, legs, address):
         # Head
-        self.browser.select_from_list_by_index('id:head', head)
+        self.browser.select_options_by('id=head', SelectAttribute['index'], head)
 
         # Body
-        self.browser.click_element('id:id-body-{0}'.format(body))
+        self.browser.click('id=id-body-{0}'.format(body))
 
         # Legs
-        legs_id = self.browser.get_element_attribute('xpath://label[text()="3. Legs:"]', 'for')
-        self.browser.input_text('xpath://input[@id={0}]'.format(legs_id), legs)
+        legs_id = self.browser.get_attribute('xpath=//label[text()="3. Legs:"]', 'for')
+        self.browser.type_text('xpath=//input[@id={0}]'.format(legs_id), legs)
 
         #Address
-        self.browser.input_text('id:address', address)
+        self.browser.type_text('id=address', address)
 
     def preview( self ):
-        self.browser.click_button('id:preview')
+        self.browser.click('id=preview')
 
     def order( self ):
-        self.browser.click_button('id:order')
+        self.browser.click('id=order')
     
     def get_receipt( self ):
-        self.browser.wait_until_element_is_visible('id:receipt')
-        receipt = self.browser.get_text('id:receipt')
+        self.browser.wait_for_elements_state('id=receipt', state=ElementState.visible)
+        receipt = self.browser.get_text('id=receipt')
         
         return receipt
 
     def get_receipt_as_html( self ):
-        self.browser.wait_until_element_is_visible('id:receipt')
-        receipt = self.browser.get_element_attribute('id:receipt', 'innerHTML')
+        self.browser.wait_for_elements_state('id=receipt', state=ElementState.visible)
+        receipt = self.browser.get_text('id=receipt')
 
         return receipt
 
     def download_robot_preview( self, path ):
-        self.browser.wait_until_element_is_visible('id:robot-preview-image')
-        self.browser.capture_element_screenshot('id:robot-preview-image', path)
+        self.browser.wait_for_elements_state('id=robot-preview-image', state=ElementState.visible)
+        self.browser.take_screenshot(filename=path, selector='id=robot-preview-image', fullPage=True, fileType=ScreenshotFileTypes.png)
 
 
     def order_another_robot(self ):
-        self.browser.click_button('id:order-another')
-        self.browser.wait_until_element_is_not_visible('id:order-another')
+        self.browser.click('id=order-another')
         
 
 if __name__ == '__main__':
     order = RobotOrder()
-    order.open_application()
+    order.open_application(url='https://robotsparebinindustries.com/#/robot-order', env='DEV')
     order.accept_terms()
     order.new_order(head = "1", body= "2", legs="3", address='Address 123')
     order.preview()
     order.order()
-    order.get_receipt()
-    order.order_another_robot()
-    order.accept_terms()
+    order.get_receipt_as_html()
+    order.download_robot_preview(path='C:\\Users\\SophievonCorswant\\OneDrive - Jounce AB\\Documents\\Projekt\\Internt\\robocorp\\robocorp-certification\\temp\\test.png')
+    order.close_browser()

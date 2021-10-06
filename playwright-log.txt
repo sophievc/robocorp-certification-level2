@@ -1,0 +1,28 @@
+{"level":30,"time":"2021-10-06T07:12:52.745Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Listening on 60283"}
+{"level":30,"time":"2021-10-06T07:12:52.939Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"currentBrowser: undefined"}
+{"level":30,"time":"2021-10-06T07:12:53.279Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Changed active context"}
+{"level":30,"time":"2021-10-06T07:12:53.359Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Video path: undefined"}
+{"level":30,"time":"2021-10-06T07:12:53.360Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Changed active page"}
+{"level":30,"time":"2021-10-06T07:12:53.703Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//*[text()=\"RobotSpareBin Industries Inc.\"]"}
+{"level":30,"time":"2021-10-06T07:12:53.727Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//button[text()=\"Yep\"]"}
+{"level":30,"time":"2021-10-06T07:12:53.737Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//button[text()=\"Yep\"]"}
+{"level":30,"time":"2021-10-06T07:12:53.794Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=head"}
+{"level":30,"time":"2021-10-06T07:12:53.806Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=id-body-1"}
+{"level":30,"time":"2021-10-06T07:12:53.850Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Strict mode is: true"}
+{"level":30,"time":"2021-10-06T07:12:53.857Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Retrieved attribute for element xpath=//label[text()=\"3. Legs:\"] containing 1633504373527"}
+{"level":30,"time":"2021-10-06T07:12:53.860Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//input[@id=1633504373527]"}
+{"level":30,"time":"2021-10-06T07:12:53.870Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//input[@id=1633504373527]"}
+{"level":30,"time":"2021-10-06T07:12:53.881Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=address"}
+{"level":30,"time":"2021-10-06T07:12:53.893Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=address"}
+{"level":30,"time":"2021-10-06T07:12:53.911Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=preview"}
+{"level":30,"time":"2021-10-06T07:12:53.955Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=order"}
+{"level":30,"time":"2021-10-06T07:12:54.004Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=receipt"}
+{"level":30,"time":"2021-10-06T07:12:54.012Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Strict mode is: true"}
+{"level":30,"time":"2021-10-06T07:12:54.023Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Retrieved text for element id=receipt containing Receipt\n2021-10-06T07:12:53.997Z\n\nRSB-ROBO-ORDER-CBY1JM0S6H\n\nAddress H\n\nHead: 1\nBody: 1\nLegs: 5\n\nThank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!"}
+{"level":30,"time":"2021-10-06T07:12:54.033Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=robot-preview-image"}
+{"level":30,"time":"2021-10-06T07:12:54.159Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=order-another"}
+{"level":30,"time":"2021-10-06T07:12:54.274Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//button[text()=\"Yep\"]"}
+{"level":30,"time":"2021-10-06T07:12:54.306Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//button[text()=\"Yep\"]"}
+{"level":30,"time":"2021-10-06T07:12:54.342Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Changed active context"}
+{"level":30,"time":"2021-10-06T07:12:54.342Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Changing current active page"}
+{"level":30,"time":"2021-10-06T07:12:54.342Z","pid":15176,"hostname":"DESKTOP-RFRABT4","msg":"Changed active page"}

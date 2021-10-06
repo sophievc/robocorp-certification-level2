@@ -52,12 +52,12 @@ def init_all_applications( config, _secrets):
 
     return robot_order
 
-def kill_all_applications( config ):
-    print ('[Framework] Killing all applications')
+def kill_all_applications( config, robot_order ):
+    robot_order.close_browser()
 
 def close_all_applications( config, robot_order ):
     LOGGER.info('Closing all applications')
-    robot_order.close_application()
+    robot_order.close_page()
 
 
 def get_transaction_data( config ):
@@ -82,10 +82,12 @@ def process( config, transaction_item, transaction_number, robot_order ):
     LOGGER.info(f'Processing transaction number: {transaction_number}')
 
     #Process variables
-    folder_temp = os.path.join(os.path.curdir, 'temp')
+    folder_temp = os.path.join(os.getcwd(), 'temp')
+    folder_output = os.path.join(os.getcwd(), 'output', 'receipts')
+
     filename_temp_text = os.path.join(folder_temp, 'text{}.pdf'.format(transaction_number))
-    filename_temp_image = os.path.join(folder_temp, 'image{}.png'.format(transaction_number))
-    filename_output = os.path.join(os.path.curdir, 'output', 'receipts', 'output{}.pdf'.format(transaction_number))
+    filename_temp_image = os.path.join(folder_temp, 'image{}'.format(transaction_number))
+    filename_output = os.path.join(folder_output, 'output{}.pdf'.format(transaction_number))
     pdf = PDF()
 
 
@@ -98,7 +100,7 @@ def process( config, transaction_item, transaction_number, robot_order ):
     receipt = robot_order.get_receipt_as_html()
     pdf.html_to_pdf(receipt, filename_temp_text)
     robot_order.download_robot_preview(filename_temp_image)
-    pdf.add_files_to_pdf(files = [filename_temp_text, filename_temp_image], 
+    pdf.add_files_to_pdf(files = [filename_temp_text, filename_temp_image + '.png'], 
                          target_document = filename_output)
 
     robot_order.order_another_robot()
@@ -203,7 +205,7 @@ if __name__ == "__main__":
                 close_all_applications( config, robot_order )
             except Exception:
                 LOGGER.exception('Failed to close all applications: ' + str(e) )
-                kill_all_applications( config )
+                kill_all_applications( config, robot_order )
             finally:
                 restart_needed = True
                 retry_number += 1
@@ -218,7 +220,7 @@ if __name__ == "__main__":
         close_all_applications( config, robot_order )
     except Exception as e:
         LOGGER.exception('Failed to close all applications: ' + str(e) )
-        kill_all_applications( config )
+        kill_all_applications( config, robot_order )
 
 
     try: 
@@ -237,11 +239,11 @@ if __name__ == "__main__":
                 print(f'Failed to remove {f}. Reason: {str(e)}')
 
 
-#TODO
-#   x paths as variables in config
+# TODO
 #   x path separator ( / or \)
 #   x zip output
-#   - HANDLE CRASCH BETTER
 #   x use logging instead of print
 #   X open assistant for file save/ url of the csv
 #   - use the Vault somehow, order robot website for example.
+#   x Fix memory leak? 
+#   - screenshot save location FIX
