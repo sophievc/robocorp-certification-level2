@@ -120,7 +120,7 @@ def init_all_settings():
     config = {}
     _secrets = []
 
-    with open("Data\config.json", 'r') as f:
+    with open("data\config.json", 'r') as f:
         local_config = json.load(f)
 
     for k,v in local_config['settings'].items():
