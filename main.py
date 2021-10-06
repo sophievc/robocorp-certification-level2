@@ -89,9 +89,11 @@ def process( config, transaction_item, transaction_number, robot_order ):
     filename_temp_text = os.path.join(folder_temp, 'text{}.pdf'.format(transaction_number))
     filename_temp_image = os.path.join(folder_temp, 'image{}.png'.format(transaction_number))
     filename_output = os.path.join(folder_output, 'output{}.pdf'.format(transaction_number))
+
     pdf = PDF()
+    file_system = FileSystem()
 
-
+    #Process steps
     robot_order.new_order(str(transaction_item[1]), 
                             str(transaction_item[2]), 
                             str(transaction_item[3]), 
@@ -106,16 +108,18 @@ def process( config, transaction_item, transaction_number, robot_order ):
                                    output_path=filename_output, 
                                    source_path=filename_temp_text)
 
-    FileSystem().wait_until_created(filename_output)
+    file_system.wait_until_created(filename_output)
     robot_order.order_another_robot()
     robot_order.accept_terms()
     
     for f in os.listdir(folder_temp):
         file_to_remove = os.path.join(folder_temp, f)
         try:
-            os.unlink(file_to_remove)
+            file_system.remove_file(file_to_remove)
+            file_system.wait_until_removed(file_to_remove)
+
         except Exception as e:
-            print(f'Failed to remove {f}. Reason: {str(e)}')
+            LOGGER.exception(f'Failed to remove {f}. Reason: {str(e)}')
 
     
 

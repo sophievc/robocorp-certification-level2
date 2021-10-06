@@ -1,5 +1,3 @@
-import os
-from typing import cast
 from Browser.utils.data_types import ElementState, ScreenshotFileTypes, SelectAttribute
 from RPA.Browser.Selenium import Selenium
 import Browser
@@ -53,9 +51,15 @@ class RobotOrder( object ):
         return receipt
 
     def get_receipt_as_html( self ):
-        self.browser.wait_for_elements_state('id=receipt', state=ElementState.visible)
-        receipt = self.browser.get_text('id=receipt')
-
+        receipt = None
+        if self.browser.get_element_state('id=receipt'):
+            receipt = self.browser.get_property(selector='id=receipt', property='innerHTML')
+        elif self.browser.get_element_state('xpath=//div[@class="alert alert-danger"]'):
+            message = self.browser.get_text('xpath=//div[@class="alert alert-danger"]')
+            raise Exception(message)
+        else:
+            raise Exception("Unable to get receipt.")
+        
         return receipt
 
     def download_robot_preview( self, path ):
@@ -74,6 +78,7 @@ if __name__ == '__main__':
     order.new_order(head = "1", body= "2", legs="3", address='Address 123')
     order.preview()
     order.order()
-    order.get_receipt_as_html()
-    order.download_robot_preview(path='C:\\Users\\SophievonCorswant\\OneDrive - Jounce AB\\Documents\\Projekt\\Internt\\robocorp\\robocorp-certification\\temp\\test.png')
+    receipt = order.get_receipt_as_html()
+    print(receipt)
+    #order.download_robot_preview(path='C:\\Users\\SophievonCorswant\\OneDrive - Jounce AB\\Documents\\Projekt\\Internt\\robocorp\\robocorp-certification\\temp\\test.png')
     order.close_browser()
