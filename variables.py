@@ -1,4 +1,5 @@
 from RPA.Robocorp.Vault import Vault
+from RPA.Robocorp import utils 
 import json
 import os
 
@@ -10,7 +11,7 @@ def set_development_environment_variables():
             os.environ[key] = env_file[key]
 
 
-set_development_environment_variables()
+#set_development_environment_variables()
 
 secret = Vault().get_secret("RobotSpareBin")
 
