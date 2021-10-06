@@ -149,7 +149,7 @@ def get_user_input():
 
 
 if __name__ == "__main__":
-    config, _secrets = init_all_settings()
+    config = init_all_settings()
     LOGGER.info('Starting')
     
     # Set global variables
@@ -168,7 +168,7 @@ if __name__ == "__main__":
 
     # INIT 
     #config, _secrets = init_all_settings()
-    robot_order = init_all_applications( config, _secrets ) # Returns all application objects
+    robot_order = init_all_applications( config ) # Returns all application objects
     transaction_data = get_transaction_data( config )
 
     while transactions_remain:
@@ -185,7 +185,7 @@ if __name__ == "__main__":
             break
 
         if restart_needed:
-            robot_order = init_all_applications( config, _secrets )
+            robot_order = init_all_applications( config )
 
         # PROCESS TRANSACTION
         try:
@@ -228,16 +228,7 @@ if __name__ == "__main__":
         try:
             for f in os.listdir(os.path.join(os.getcwd(), 'output', 'receipts')):
                 file_to_remove = os.path.join(os.path.join(os.getcwd(), 'output', 'receipts'), f)
-                os.unlink(file_to_remove)
+                FileSystem().remove_file(file_to_remove)
+                FileSystem().wait_until_removed(file_to_remove)
         except Exception as e:
             print(f'Failed to remove temp files. Reason: {str(e)}')
-
-
-# TODO
-#   x path separator ( / or \)
-#   x zip output
-#   x use logging instead of print
-#   X open assistant for file save/ url of the csv
-#   - use the Vault somehow, order robot website for example.
-#   x Fix memory leak? 
-#   - screenshot save location FIX

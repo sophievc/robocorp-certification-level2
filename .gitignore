@@ -12,3 +12,4 @@ temp/
 *.pyc
 *.zip
 *.csv
+playwright-log.txt
