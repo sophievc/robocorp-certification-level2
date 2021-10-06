@@ -10,6 +10,7 @@ from RPA.PDF import PDF
 from RPA.Archive import Archive
 from RPA.Dialogs import Dialogs
 from RPA.Tables import Tables
+from RPA.FileSystem import FileSystem
 
 # Standard lib
 import json
@@ -86,7 +87,7 @@ def process( config, transaction_item, transaction_number, robot_order ):
     folder_output = os.path.join(os.getcwd(), 'output', 'receipts')
 
     filename_temp_text = os.path.join(folder_temp, 'text{}.pdf'.format(transaction_number))
-    filename_temp_image = os.path.join(folder_temp, 'image{}'.format(transaction_number))
+    filename_temp_image = os.path.join(folder_temp, 'image{}.png'.format(transaction_number))
     filename_output = os.path.join(folder_output, 'output{}.pdf'.format(transaction_number))
     pdf = PDF()
 
@@ -98,11 +99,14 @@ def process( config, transaction_item, transaction_number, robot_order ):
     robot_order.preview()
     robot_order.order()
     receipt = robot_order.get_receipt_as_html()
-    pdf.html_to_pdf(receipt, filename_temp_text)
+    pdf.html_to_pdf(content = receipt, output_path= filename_temp_text)
     robot_order.download_robot_preview(filename_temp_image)
-    pdf.add_files_to_pdf(files = [filename_temp_text, filename_temp_image + '.png'], 
-                         target_document = filename_output)
 
+    pdf.add_watermark_image_to_pdf(image_path=filename_temp_image,
+                                   output_path=filename_output, 
+                                   source_path=filename_temp_text)
+
+    FileSystem().wait_until_created(filename_output)
     robot_order.order_another_robot()
     robot_order.accept_terms()
     
@@ -225,18 +229,18 @@ if __name__ == "__main__":
 
     try: 
         archive = Archive()
-        archive.archive_folder_with_zip(os.path.join(os.path.curdir, 'output', 'receipts'), 
-                                        os.path.join(os.path.curdir, 'output', user_input['file_name'] + '.zip'))
+        archive.archive_folder_with_zip(os.path.join(os.getcwd(), 'output', 'receipts'), 
+                                        os.path.join(os.getcwd(), 'output', user_input['file_name'] + '.zip'))
     except Exception as e:
         LOGGER.exception(f'Failed to archive receipts: {str(e)}')
     
     finally:
-        for f in os.listdir(os.path.join(os.path.curdir, 'output', 'receipts')):
-            file_to_remove = os.path.join(os.path.join(os.path.curdir, 'output', 'receipts'), f)
-            try:
+        try:
+            for f in os.listdir(os.path.join(os.getcwd(), 'output', 'receipts')):
+                file_to_remove = os.path.join(os.path.join(os.getcwd(), 'output', 'receipts'), f)
                 os.unlink(file_to_remove)
-            except Exception as e:
-                print(f'Failed to remove {f}. Reason: {str(e)}')
+        except Exception as e:
+            print(f'Failed to remove temp files. Reason: {str(e)}')
 
 
 # TODO
