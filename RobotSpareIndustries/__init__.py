@@ -70,15 +70,3 @@ class RobotOrder( object ):
     def order_another_robot(self ):
         self.browser.click('id=order-another')
         
-
-if __name__ == '__main__':
-    order = RobotOrder()
-    order.open_application(url='https://robotsparebinindustries.com/#/robot-order', env='DEV')
-    order.accept_terms()
-    order.new_order(head = "1", body= "2", legs="3", address='Address 123')
-    order.preview()
-    order.order()
-    receipt = order.get_receipt_as_html()
-    print(receipt)
-    #order.download_robot_preview(path='C:\\Users\\SophievonCorswant\\OneDrive - Jounce AB\\Documents\\Projekt\\Internt\\robocorp\\robocorp-certification\\temp\\test.png')
-    order.close_browser()

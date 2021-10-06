@@ -1,7 +1,5 @@
-""" Process Framework. Attempt to emulate existing UiPath Framework """
-"""NOTE FOR RCC USERS: Robocorp Lab and the Robocorp VS Code extension 
-will pick up the devdata/env.json file automatically. While using RCC locally, you have 
-to explicitly point to the file using the -e argument like so: rcc run -e devdata/env.json."""
+""" RobotSpareBinIndustries process for ordering robot. 
+    REquired for level 2 certification """
 
 # Standard RPA Libs
 from RPA.HTTP import HTTP
@@ -20,7 +18,7 @@ import sys
 
 # Framework lib (custom errors and utilities)
 from RobotSpareIndustries import RobotOrder
-
+from variables import WEBSITE_URL
 
 stdout = logging.StreamHandler(sys.stdout)
 
@@ -32,23 +30,12 @@ logging.basicConfig(
 
 LOGGER = logging.getLogger(__name__)
 
-#workaround
-def set_development_environment_variables():
-    with open("./devdata/env.json") as env_in:
-        env_file = json.load(env_in)
-        for key in env_file:
-            os.environ[key] = env_file[key]
 
-def init_all_applications( config, _secrets):
+def init_all_applications( config ):
     LOGGER.info('Opening all applications')
 
-    if len(_secrets) == 0:
-        url = 'https://robotsparebinindustries.com/#/robot-order'
-    else:
-        url = _secrets['robotspareindustries']['robot_order_url']
-
     robot_order = RobotOrder()
-    robot_order.open_application(url)
+    robot_order.open_application(WEBSITE_URL)
     robot_order.accept_terms()
 
     return robot_order
@@ -162,7 +149,6 @@ def get_user_input():
 
 
 if __name__ == "__main__":
-    set_development_environment_variables()
     config, _secrets = init_all_settings()
     LOGGER.info('Starting')
     
