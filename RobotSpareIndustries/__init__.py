@@ -43,6 +43,9 @@ class RobotOrder( object ):
 
     def order( self ):
         self.browser.click('id=order')
+        if self.browser.get_element_state('xpath=//div[@class="alert alert-danger"]'):
+            message = self.browser.get_text('xpath=//div[@class="alert alert-danger"]')
+            raise Exception(message)
     
     def get_receipt( self ):
         self.browser.wait_for_elements_state('id=receipt', state=ElementState.visible)
@@ -52,13 +55,9 @@ class RobotOrder( object ):
 
     def get_receipt_as_html( self ):
         receipt = None
-        if self.browser.get_element_state('id=receipt'):
-            receipt = self.browser.get_property(selector='id=receipt', property='innerHTML')
-        elif self.browser.get_element_state('xpath=//div[@class="alert alert-danger"]'):
-            message = self.browser.get_text('xpath=//div[@class="alert alert-danger"]')
-            raise Exception(message)
-        else:
-            raise Exception("Unable to get receipt.")
+        self.browser.wait_for_elements_state('id=receipt')
+        receipt = self.browser.get_property(selector='id=receipt', property='innerHTML')
+
         
         return receipt
 
