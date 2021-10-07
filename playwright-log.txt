@@ -1,58 +1,28 @@
-{"level":30,"time":"2021-10-06T11:03:15.779Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Listening on 61996"}
-{"level":30,"time":"2021-10-06T11:03:15.869Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"currentBrowser: undefined"}
-{"level":30,"time":"2021-10-06T11:03:16.134Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Changed active context"}
-{"level":30,"time":"2021-10-06T11:03:16.227Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Video path: undefined"}
-{"level":30,"time":"2021-10-06T11:03:16.227Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Changed active page"}
-{"level":30,"time":"2021-10-06T11:03:16.486Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//*[text()=\"RobotSpareBin Industries Inc.\"]"}
-{"level":30,"time":"2021-10-06T11:03:16.518Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//button[text()=\"Yep\"]"}
-{"level":30,"time":"2021-10-06T11:03:16.527Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//button[text()=\"Yep\"]"}
-{"level":30,"time":"2021-10-06T11:03:16.575Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=head"}
-{"level":30,"time":"2021-10-06T11:03:16.588Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=id-body-6"}
-{"level":30,"time":"2021-10-06T11:03:16.630Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Strict mode is: true"}
-{"level":30,"time":"2021-10-06T11:03:16.639Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Retrieved attribute for element xpath=//label[text()=\"3. Legs:\"] containing 1633518196355"}
-{"level":30,"time":"2021-10-06T11:03:16.642Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//input[@id=1633518196355]"}
-{"level":30,"time":"2021-10-06T11:03:16.655Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//input[@id=1633518196355]"}
-{"level":30,"time":"2021-10-06T11:03:16.664Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=address"}
-{"level":30,"time":"2021-10-06T11:03:16.678Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=address"}
-{"level":30,"time":"2021-10-06T11:03:16.698Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=preview"}
-{"level":30,"time":"2021-10-06T11:03:16.753Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=order"}
-{"level":30,"time":"2021-10-06T11:03:16.809Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//div[@class=\"alert alert-danger\"]"}
-================= Original suppressed error =================
-page.waitForSelector: Timeout 100ms exceeded.
-=========================== logs ===========================
-waiting for selector "xpath=//div[@class="alert alert-danger"]" to be visible
-============================================================
-    at C:\Users\SophievonCorswant\AppData\Local\robocorp\live\02e26e28c5fedb2d\lib\site-packages\Browser\wrapper\index.js:26427:45
-    at step (C:\Users\SophievonCorswant\AppData\Local\robocorp\live\02e26e28c5fedb2d\lib\site-packages\Browser\wrapper\index.js:26310:23)
-    at Object.next (C:\Users\SophievonCorswant\AppData\Local\robocorp\live\02e26e28c5fedb2d\lib\site-packages\Browser\wrapper\index.js:26291:53)
-    at fulfilled (C:\Users\SophievonCorswant\AppData\Local\robocorp\live\02e26e28c5fedb2d\lib\site-packages\Browser\wrapper\index.js:26282:58) {
-  name: 'TimeoutError'
-}
-=============================================================
-{"level":30,"time":"2021-10-06T11:03:16.929Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=receipt"}
-{"level":30,"time":"2021-10-06T11:03:16.939Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Strict mode is: true"}
-{"level":30,"time":"2021-10-06T11:03:16.947Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Retrieved dom property for element id=receipt containing <h3>Receipt</h3><div>2021-10-06T11:03:16.798Z</div><p class=\"badge badge-success\">RSB-ROBO-ORDER-ISPER98OTF</p><p>Address G</p><div id=\"parts\" class=\"alert alert-light\" role=\"alert\"><div>Head: 4</div><div>Body: 6</div><div>Legs: 2</div></div><p>Thank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!</p>"}
-{"level":30,"time":"2021-10-06T11:03:16.957Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=robot-preview-image"}
-{"level":30,"time":"2021-10-06T11:03:17.101Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=order-another"}
-{"level":30,"time":"2021-10-06T11:03:17.148Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//button[text()=\"Yep\"]"}
-{"level":30,"time":"2021-10-06T11:03:17.192Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//button[text()=\"Yep\"]"}
-{"level":30,"time":"2021-10-06T11:03:17.242Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=head"}
-{"level":30,"time":"2021-10-06T11:03:17.253Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=id-body-1"}
-{"level":30,"time":"2021-10-06T11:03:17.294Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Strict mode is: true"}
-{"level":30,"time":"2021-10-06T11:03:17.303Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Retrieved attribute for element xpath=//label[text()=\"3. Legs:\"] containing 1633518197160"}
-{"level":30,"time":"2021-10-06T11:03:17.305Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//input[@id=1633518197160]"}
-{"level":30,"time":"2021-10-06T11:03:17.319Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//input[@id=1633518197160]"}
-{"level":30,"time":"2021-10-06T11:03:17.329Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=address"}
-{"level":30,"time":"2021-10-06T11:03:17.339Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=address"}
-{"level":30,"time":"2021-10-06T11:03:17.363Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=preview"}
-{"level":30,"time":"2021-10-06T11:03:17.399Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=order"}
-{"level":30,"time":"2021-10-06T11:03:17.447Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//div[@class=\"alert alert-danger\"]"}
-{"level":30,"time":"2021-10-06T11:03:17.455Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Strict mode is: true"}
-{"level":30,"time":"2021-10-06T11:03:17.467Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Retrieved text for element xpath=//div[@class=\"alert alert-danger\"] containing External Server Error"}
-{"level":30,"time":"2021-10-06T11:03:17.479Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Changed active context"}
-{"level":30,"time":"2021-10-06T11:03:17.479Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Changing current active page"}
-{"level":30,"time":"2021-10-06T11:03:17.479Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Changed active page"}
-{"level":30,"time":"2021-10-06T11:03:17.493Z","pid":25360,"hostname":"DESKTOP-RFRABT4","msg":"Changed active context"}
+{"level":30,"time":"2021-10-07T07:16:58.468Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Listening on 56777"}
+{"level":30,"time":"2021-10-07T07:16:58.608Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"currentBrowser: undefined"}
+{"level":30,"time":"2021-10-07T07:16:59.030Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Changed active context"}
+{"level":30,"time":"2021-10-07T07:16:59.130Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Video path: undefined"}
+{"level":30,"time":"2021-10-07T07:16:59.130Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Changed active page"}
+{"level":30,"time":"2021-10-07T07:16:59.398Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//*[text()=\"RobotSpareBin Industries Inc.\"]"}
+{"level":30,"time":"2021-10-07T07:16:59.433Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//button[text()=\"Yep\"]"}
+{"level":30,"time":"2021-10-07T07:16:59.446Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//button[text()=\"Yep\"]"}
+{"level":30,"time":"2021-10-07T07:16:59.478Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=head"}
+{"level":30,"time":"2021-10-07T07:16:59.490Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=id-body-1"}
+{"level":30,"time":"2021-10-07T07:16:59.534Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Strict mode is: true"}
+{"level":30,"time":"2021-10-07T07:16:59.541Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Retrieved attribute for element xpath=//label[text()=\"3. Legs:\"] containing 1633591019272"}
+{"level":30,"time":"2021-10-07T07:16:59.544Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//input[@id=1633591019272]"}
+{"level":30,"time":"2021-10-07T07:16:59.555Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//input[@id=1633591019272]"}
+{"level":30,"time":"2021-10-07T07:16:59.566Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=address"}
+{"level":30,"time":"2021-10-07T07:16:59.579Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=address"}
+{"level":30,"time":"2021-10-07T07:16:59.605Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=preview"}
+{"level":30,"time":"2021-10-07T07:16:59.658Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: id=order"}
+{"level":30,"time":"2021-10-07T07:16:59.704Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Page|Frame|Element resolved elementSelector: xpath=//div[@class=\"alert alert-danger\"]"}
+{"level":30,"time":"2021-10-07T07:16:59.714Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Strict mode is: true"}
+{"level":30,"time":"2021-10-07T07:16:59.723Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Retrieved text for element xpath=//div[@class=\"alert alert-danger\"] containing Server Feeling Slightly Sick Error"}
+{"level":30,"time":"2021-10-07T07:16:59.734Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Changed active context"}
+{"level":30,"time":"2021-10-07T07:16:59.734Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Changing current active page"}
+{"level":30,"time":"2021-10-07T07:16:59.734Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Changed active page"}
+{"level":30,"time":"2021-10-07T07:16:59.746Z","pid":27136,"hostname":"DESKTOP-RFRABT4","msg":"Changed active context"}
 ================= Original suppressed error =================
 Error: No open page
     at C:\Users\SophievonCorswant\AppData\Local\robocorp\live\02e26e28c5fedb2d\lib\site-packages\Browser\wrapper\index.js:27229:31

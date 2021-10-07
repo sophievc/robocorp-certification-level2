@@ -89,7 +89,9 @@ def process( config, transaction_item, transaction_number, robot_order ):
     robot_order.order()
     receipt = robot_order.get_receipt_as_html()
     pdf.html_to_pdf(content = receipt, output_path= filename_temp_text)
+    file_system.wait_until_created(filename_temp_text)
     robot_order.download_robot_preview(filename_temp_image)
+    file_system.wait_until_created(filename_temp_image)
 
     pdf.add_watermark_image_to_pdf(image_path=filename_temp_image,
                                    output_path=filename_output, 
