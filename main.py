@@ -156,7 +156,7 @@ if __name__ == "__main__":
     config = {}
     transaction_number = 0
     transactions_remain = True
-    max_retries = 0
+    max_retries = 5
     retry_number = 0
     restart_needed = False
 
