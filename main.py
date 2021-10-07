@@ -208,6 +208,7 @@ if __name__ == "__main__":
                 if retry_number < max_retries:
                     LOGGER.info('Retrying transaction')
                 else:
+                    retry_number = 0
                     transaction_number += 1
 
     
